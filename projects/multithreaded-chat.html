@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multithreaded Chat - Lucca Butler-Cassar</title>
+  <meta name="description" content="A multithreaded client-server chat system in C, with GTK and command-line clients, chat rooms, and message history replay." />
+  <link rel="icon" href="../assets/images/avatar-chip.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/gallery.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__brand" href="../index.html">Lucca Butler-Cassar</a>
+      <a class="breadcrumb" href="../index.html">&larr; All projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero container">
+      <h1 class="project-hero__title">Multithreaded Chat</h1>
+      <p class="project-hero__summary">
+        A multithreaded client-server chat system written in C, with GTK and command-line
+        clients for real-time messaging across multiple participants. Built as a duo project.
+      </p>
+      <div class="tag-row">
+        <span class="tag tag--lang">C</span>
+        <span class="tag tag--domain">Networking</span>
+        <span class="tag tag--domain">Concurrency</span>
+        <span class="tag tag--domain">Threads</span>
+      </div>
+      <div class="project-actions">
+        <a class="btn btn--secondary" href="https://github.com/lb1224-icl/Multithreaded-Chat" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-grid">
+          <button class="gallery-grid__item" type="button" data-caption="GTK client showing global, room, and private message panes">
+            <img src="../assets/images/multithreaded_chat/Preview.png" alt="Preview of the GTK chat client with separate panes for global, room, and private messages" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-body container">
+      <section aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <p>
+          A client-server chat system built as a duo project, written in C
+          over UDP sockets. The server dispatches a worker thread per request, and messages carry
+          a 2-bit routing prefix directing them to one of three channels: global (<code>00</code>),
+          room (<code>01</code>), or private (<code>10</code>). Clients can connect through either
+          a GTK graphical interface, with separate panes for global, room, and private logs, or a
+          command-line interface.
+        </p>
+      </section>
+
+      <section aria-labelledby="approach-heading">
+        <h2 id="approach-heading">Technical Approach</h2>
+        <p>
+          The core is a multithreaded UDP server built on POSIX threads, spawning a worker thread
+          per incoming request rather than a single-threaded event loop. Three extensions sit on
+          top of that base: a circular queue that buffers recent message history so a client
+          reconnecting can replay what it missed, a min-heap monitor that tracks client activity
+          and pings and removes inactive connections, and chat room support with administrative
+          controls for grouping clients and directing messages to a subset of participants rather
+          than broadcasting globally.
+        </p>
+      </section>
+
+      <section aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <p>
+          The system is functional end to end: message routing across all three channels, history
+          replay on reconnect via the circular queue, inactivity detection via the min-heap
+          monitor, and chat rooms with administrative controls all work as designed, demonstrated
+          through the GTK client shown above.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Lucca Butler-Cassar</span>
+      <span><a href="https://github.com/lb1224-icl/portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L-LUT to P-LUT Synthesis - Lucca Butler-Cassar</title>
+  <meta name="description" content="A Python and SystemVerilog toolflow for decomposing large lookup tables into FPGA-ready 6-input LUT networks. Work in progress." />
+  <link rel="icon" href="../assets/images/avatar-chip.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__brand" href="../index.html">Lucca Butler-Cassar</a>
+      <a class="breadcrumb" href="../index.html">&larr; All projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero container">
+      <span class="status-banner">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v3.8l2.5 1.6"/></svg>
+        In Progress
+      </span>
+      <h1 class="project-hero__title">L-LUT to P-LUT Synthesis</h1>
+      <p class="project-hero__summary">
+        A Python and SystemVerilog toolflow that decomposes large Boolean truth tables (L-LUTs)
+        into networks of FPGA-native 6-input LUTs (P-LUTs), with optional SystemVerilog netlist
+        and exhaustive testbench generation for verification.
+      </p>
+      <div class="tag-row">
+        <span class="tag tag--status">In Progress</span>
+        <span class="tag tag--lang">Python</span>
+        <span class="tag tag--lang">SystemVerilog</span>
+        <span class="tag tag--domain">Logic Synthesis</span>
+      </div>
+      <div class="project-actions">
+        <a class="btn btn--secondary" href="https://github.com/lb1224-icl/L-LUT-to-P-LUT-Synthesis" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="project-media project-media--icon">
+        <img src="../assets/images/icon-lut-synthesis.svg" alt="Diagram of a large lookup table being recursively decomposed into an even tree of small 6-input LUT nodes" width="480" height="300" />
+      </div>
+    </section>
+
+    <section class="project-body container">
+      <section aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <p>
+          FPGA fabric is built from small fixed-input LUTs (6-input on most modern devices), but
+          some designs, particularly ones synthesised or generated programmatically, want to
+          express much larger lookup tables. This project takes a large Boolean truth table
+          (an "L-LUT") stored in hex format and decomposes it into a network of native 6-input
+          LUTs (P-LUTs) that FPGA fabric can implement directly, optionally emitting a
+          SystemVerilog netlist plus an exhaustive testbench to verify the decomposition is
+          functionally identical to the original table.
+        </p>
+      </section>
+
+      <section aria-labelledby="approach-heading">
+        <h2 id="approach-heading">Technical Approach</h2>
+        <p>
+          The toolflow implements five decomposition strategies of increasing sophistication:
+        </p>
+        <ul>
+          <li><strong>Shannon Single</strong>: classic Shannon expansion with a fixed variable ordering.</li>
+          <li><strong>Shannon Single Share</strong>: the same expansion, but caching and reusing matching LUT nodes to cut duplication.</li>
+          <li><strong>Shannon Multi</strong>: multi-variable splits per level (4:1 mux stages) to reduce circuit depth.</li>
+          <li><strong>Shannon Smart</strong>: two-variable splits chosen by an entropy and Hamming-distance heuristic, rather than a fixed order.</li>
+          <li><strong>LDTC and CLUT</strong>: lossless differential table splitting and sub-table similarity analysis for further compression.</li>
+        </ul>
+        <p>
+          Each strategy is evaluated on LUT count, unique LUT instance count, and circuit depth,
+          with Vivado-based post-synthesis area and timing evaluation planned.
+        </p>
+      </section>
+
+      <section aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <p>
+          Not yet available. This project is a work in progress: the decomposition strategies and
+          SystemVerilog/testbench generation are implemented, and Vivado-based synthesis
+          evaluation is planned next.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Lucca Butler-Cassar</span>
+      <span><a href="https://github.com/lb1224-icl/portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

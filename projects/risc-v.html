@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RISC-V CPU - Lucca Butler-Cassar</title>
+  <meta name="description" content="A pipelined RISC-V RV32I processor in SystemVerilog with a multi-level cache hierarchy, built by a four-person team." />
+  <link rel="icon" href="../assets/images/avatar-chip.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__brand" href="../index.html">Lucca Butler-Cassar</a>
+      <a class="breadcrumb" href="../index.html">&larr; All projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero container">
+      <h1 class="project-hero__title">RISC-V CPU</h1>
+      <p class="project-hero__summary">
+        A pipelined RISC-V RV32I processor built up from a single-cycle design to a fully
+        pipelined implementation with hazard handling, a multi-level cache hierarchy, multiply
+        and divide units, and branch prediction. Built by a four-person team.
+      </p>
+      <p class="project-hero__summary">
+        My contributions were the <strong>fetch stage</strong> and PC control logic, the
+        <strong>memory subsystem</strong>, and the <strong>three-level cache hierarchy and
+        MMU</strong>, along with the <strong>cache verification testbenches</strong>.
+      </p>
+      <div class="tag-row">
+        <span class="tag tag--lang">SystemVerilog</span>
+        <span class="tag tag--lang">C++</span>
+        <span class="tag tag--domain">CPU Architecture</span>
+        <span class="tag tag--domain">Memory Systems</span>
+        <span class="tag tag--domain">Verification</span>
+      </div>
+      <div class="project-actions">
+        <a class="btn btn--secondary" href="https://github.com/lb1224-icl/RISC-V-Project-Team6/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="project-media">
+        <img src="../assets/images/icon-riscv.svg" alt="Diagram of a five-stage RISC-V pipeline (fetch, decode, execute, memory, writeback), with a three-level cache hierarchy under the memory stage, a hazard protection unit, and a branch predictor" width="400" height="225" />
+      </div>
+    </section>
+
+    <section class="project-body container">
+      <section aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <p>
+          This project builds a RISC-V RV32I processor from the ground up, in stages: starting
+          from a basic single-cycle core with a minimal instruction set, then moving to a pipelined
+          design with hazard management (stalling, flushing, forwarding), a multi-level cache
+          hierarchy, the full RV32I instruction set, dedicated multiply and divide units outside
+          the ALU, and finally a branch prediction module. Progress at each stage was verified on
+          real hardware, running on a Vbuddy simulation interface.
+        </p>
+      </section>
+
+      <section aria-labelledby="approach-heading">
+        <h2 id="approach-heading">Technical Approach: My Contributions</h2>
+
+        <h3>Fetch stage</h3>
+        <p>
+          I built the PC control logic, storing the current program counter and deciding the next
+          one each cycle, and the top-level file wiring together all the logic inside the fetch
+          stage. I also assembled the single-cycle CPU itself, bringing the fetch, decode,
+          execute, memory, and writeback sub-modules together into one CPU top-level file before
+          the design moved on to pipelining.
+        </p>
+
+        <h3>Memory subsystem</h3>
+        <p>
+          I designed the byte-addressable RAM with register protection, so writes are silently
+          dropped when the decoded destination index is register zero, mirroring the RISC-V
+          convention that <code>x0</code> is hardwired to zero and can never actually be written.
+          Instruction memory is little-endian and byte-addressed, matching the RV32I encoding the
+          rest of the pipeline expects.
+        </p>
+
+        <h3>Cache hierarchy and MMU</h3>
+        <p>
+          My largest piece of the design was the three-level cache system. L1 is two-way
+          set-associative with a write-through policy, chosen specifically to keep control logic
+          simple rather than chase the extra hit rate of a write-back scheme. Behind the cache
+          hierarchy, the memory management unit fetches from main memory through a small two-state
+          FSM, <code>IDLE</code> and <code>FILL</code>, which bursts four words from RAM per miss
+          rather than fetching one word at a time.
+        </p>
+
+        <h3>Verification</h3>
+        <p>
+          I wrote the cache testbenches using the GTest framework, checking cycle counts for hits
+          and misses, hit-miss ratios, and that the data returned was actually correct, not just
+          that the cache eventually responded. Catching timing bugs here mattered more than usual
+          since the cache sits directly in the pipeline's critical path.
+        </p>
+        <figure class="project-inline-figure">
+          <img src="../assets/images/risc-v_cpu/F1_SIM.gif" alt="Simulation of the RISC-V CPU driving an F1-style lights display on a Vbuddy board" loading="lazy" />
+          <figcaption>The pipeline running on a Vbuddy, driving an F1-style start-lights sequence as a live functional test.</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <p>
+          The processor runs the full staged feature set end to end: pipelined execution with
+          hazard handling, the three-level cache hierarchy, complete RV32I support, hardware
+          multiply/divide, and branch prediction, demonstrated on real hardware through the F1
+          lights simulation shown above.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Lucca Butler-Cassar</span>
+      <span><a href="https://github.com/lb1224-icl/portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

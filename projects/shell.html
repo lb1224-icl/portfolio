@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unix Shell - Lucca Butler-Cassar</title>
+  <meta name="description" content="A functional Unix shell in C implementing pipelines, redirection, subshells, and history expansion." />
+  <link rel="icon" href="../assets/images/avatar-chip.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__brand" href="../index.html">Lucca Butler-Cassar</a>
+      <a class="breadcrumb" href="../index.html">&larr; All projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero container">
+      <h1 class="project-hero__title">Unix Shell</h1>
+      <p class="project-hero__summary">
+        A functional Unix shell written in C, implementing many of the fundamental features found
+        in shells such as Bash: pipelines, redirection, subshells, and history expansion. Built as
+        a duo project.
+      </p>
+      <div class="tag-row">
+        <span class="tag tag--lang">C</span>
+        <span class="tag tag--platform">Unix</span>
+        <span class="tag tag--domain">Operating Systems</span>
+      </div>
+      <div class="project-actions">
+        <a class="btn btn--secondary" href="https://github.com/lb1224-icl/Shell-Implementation" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <div class="project-media">
+        <img src="../assets/images/thumb-shell.svg" alt="Diagram of a terminal window showing a shell prompt, a piped command, and a fork/exec process tree" width="400" height="225" />
+      </div>
+    </section>
+
+    <section class="project-body container">
+      <section aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <p>
+          The Unix Shell is a functional shell written in C, built as a duo project, covering the core
+          mechanics of how shells like Bash actually work: launching processes, wiring up
+          pipelines and redirection, batching commands, and expanding history references. The
+          project grew out of Imperial's Software Systems module, where we first covered process
+          creation, scheduling, and inter-process communication at the OS level, and this was a
+          chance to put that theory into practice. The codebase is split into three modules: <code>s3main.c</code> holds the main
+          control loop and entry point, <code>s3.c</code> holds parsing helpers, process launches,
+          redirection plumbing, and pipeline logic, and <code>history.c/.h</code> manages a
+          persistent history database plus expansion logic for <code>!!</code>, <code>!n</code>,
+          and <code>!prefix</code>.
+        </p>
+      </section>
+
+      <section aria-labelledby="approach-heading">
+        <h2 id="approach-heading">Technical Approach</h2>
+        <p>
+          Every command the shell runs comes down to two system calls: <code>fork()</code>, which
+          clones the running shell process into an identical parent and child, and
+          <code>exec()</code>, which replaces the child's memory image with the program you
+          actually asked to run, so it starts executing that program in place. The shell forks,
+          the child execs the command, and the parent waits for it to finish. If the parent
+          doesn't wait, a finished child process can hang around as a "zombie", a process that has
+          exited but whose entry hasn't been cleaned up in the process table. To avoid that, S3
+          runs a <code>reap()</code> call in the parent after every foreground command, the grim
+          reaper of the shell, collecting the child's exit status and letting the kernel free it
+          properly rather than leaving zombies behind. Built-ins such as <code>exit</code> are handled 
+          directly in the parent rather than forked, since there's no child process to reap for those. 
+        </p>
+        <p>
+          Redirection supports <code>&lt;</code>, <code>&gt;</code>, <code>&gt;&gt;</code>,
+          <code>2&gt;</code>, <code>2&gt;&gt;</code>, <code>2&gt;&amp;1</code>, and
+          <code>&amp;&gt;</code>, all validated before the child process is launched. Semicolon
+          batching splits independent command sequences while respecting parenthesis and quote
+          nesting, and pipe detection is quote-aware so pipelines can combine redirection and
+          subshells correctly. <code>cd</code> supports <code>.</code>, <code>..</code>,
+          <code>-</code> navigation and tilde expansion, with the prompt showing the current
+          working directory as <code>[s3 &lt;cwd&gt;]$</code>.
+        </p>
+        <p>
+          Two extensions build on that base: parenthesised subshells and nested subshells, and
+          history expansion (<code>!!</code> for the last command, <code>!n</code> for command
+          number <code>n</code>, <code>!prefix</code> for the most recent command starting with a
+          given prefix), plus multi-way redirection with last-wins semantics when a command
+          redirects the same stream more than once.
+        </p>
+      </section>
+
+      <section aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <p>
+          The shell handles the full feature set end to end: piped and redirected commands,
+          semicolon-batched sequences, nested subshells, and history expansion all work as
+          designed, tested against the same command patterns a user would type into Bash.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Lucca Butler-Cassar</span>
+      <span><a href="https://github.com/lb1224-icl/portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

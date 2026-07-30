@@ -1,5 +1,35 @@
 [
   {
+    "slug": "cache-ip",
+    "title": "Customisable Multi-Layer Cache IP",
+    "summary": "A configurable multi-layer cache IP core for Vivado, parameterised for size, associativity, and layer count. Inspired by my recent work on caches in a RISC-V CPU.",
+    "thumb": "thumb-cache-ip.svg",
+    "thumb_alt": "Diagram of a CPU core connected through a growing L1, L2, and L3 cache hierarchy to main memory",
+    "tags": [
+      { "label": "In Progress", "kind": "status" },
+      { "label": "SystemVerilog", "kind": "lang" },
+      { "label": "Vivado", "kind": "platform" },
+      { "label": "Cache Architecture", "kind": "domain" }
+    ],
+    "featured": false,
+    "in_progress": true
+  },
+  {
+    "slug": "lut-synthesis",
+    "title": "L-LUT to P-LUT Synthesis",
+    "summary": "A Python and SystemVerilog toolflow decomposing large lookup tables into FPGA-ready 6-input LUT networks, with SystemVerilog netlist and testbench generation.",
+    "thumb": "thumb-lut-synthesis.svg",
+    "thumb_alt": "Icon of a binary decision tree representing Shannon decomposition of a truth table",
+    "tags": [
+      { "label": "In Progress", "kind": "status" },
+      { "label": "Python", "kind": "lang" },
+      { "label": "SystemVerilog", "kind": "lang" },
+      { "label": "Logic Synthesis", "kind": "domain" }
+    ],
+    "featured": false,
+    "in_progress": true
+  },
+  {
     "slug": "pynq-zoom",
     "title": "PYNQ-Zoom",
     "summary": "Real-time FPGA fractal renderer: 48 parallel Mariani-Silver cores on a PYNQ-Z1, 36x faster than the ARM baseline. Built the memory subsystem, BRAM-to-DRAM streaming pipeline, queue system, top-level control, and RTL test suite.",
@@ -17,7 +47,7 @@
   },
   {
     "slug": "pynq-cast",
-    "title": "PYNQcast",
+    "title": "PYNQ-Cast",
     "summary": "Multiplayer first-person raycasting engine on a PYNQ-Z1 FPGA with a cloud-hosted, cloud-authoritative game server; built the HDMI output protocol and hardware UI overlay.",
     "thumb": "thumb-pynqcast.svg",
     "thumb_alt": "Illustration of a raycasting-rendered frame with vertical wall slices",
@@ -33,18 +63,48 @@
     "in_progress": false
   },
   {
-    "slug": "cache-ip",
-    "title": "Customisable Multi-Layer Cache IP",
-    "summary": "A configurable multi-layer cache IP core for Vivado, parameterised for size, associativity, and layer count.",
-    "thumb": "thumb-cache-ip.svg",
-    "thumb_alt": "Diagram of a CPU core connected through a growing L1, L2, and L3 cache hierarchy to main memory",
+    "slug": "multithreaded-chat",
+    "title": "Multithreaded Chat",
+    "summary": "A multithreaded client-server chat system in C over UDP, with GTK and command-line clients, chat rooms, and message history replay. Built as a duo project.",
+    "thumb": "thumb-chat.svg",
+    "thumb_alt": "Diagram of a multithreaded chat server routing messages to global, room, and private channels",
     "tags": [
-      { "label": "In Progress", "kind": "status" },
-      { "label": "SystemVerilog", "kind": "lang" },
-      { "label": "Vivado", "kind": "platform" },
-      { "label": "Cache Architecture", "kind": "domain" }
+      { "label": "C", "kind": "lang" },
+      { "label": "Networking", "kind": "domain" },
+      { "label": "Concurrency", "kind": "domain" },
+      { "label": "Threads", "kind": "domain" }
     ],
     "featured": false,
-    "in_progress": true
+    "in_progress": false
+  },
+  {
+    "slug": "shell",
+    "title": "Unix Shell",
+    "summary": "A functional Unix shell in C implementing pipelines, redirection, subshells, and history expansion. Built as a duo project.",
+    "thumb": "thumb-shell.svg",
+    "thumb_alt": "Diagram of a terminal window showing a shell prompt, a piped command, and a fork/exec process tree",
+    "tags": [
+      { "label": "C", "kind": "lang" },
+      { "label": "Unix", "kind": "platform" },
+      { "label": "Operating Systems", "kind": "domain" }
+    ],
+    "featured": false,
+    "in_progress": false
+  },
+  {
+    "slug": "risc-v",
+    "title": "RISC-V CPU",
+    "summary": "A pipelined RISC-V RV32I processor in SystemVerilog with a multi-level cache hierarchy. Built the fetch stage, memory subsystem, cache/MMU, and verification. Built by a four-person team.",
+    "thumb": "thumb-riscv.svg",
+    "thumb_alt": "Abstract illustration of a CPU chip package with pins",
+    "tags": [
+      { "label": "SystemVerilog", "kind": "lang" },
+      { "label": "C++", "kind": "lang" },
+      { "label": "CPU Architecture", "kind": "domain" },
+      { "label": "Memory Systems", "kind": "domain" },
+      { "label": "Verification", "kind": "domain" }
+    ],
+    "featured": false,
+    "in_progress": false
   }
 ]

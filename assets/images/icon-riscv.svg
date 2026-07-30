@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="Diagram of a five-stage RISC-V pipeline (fetch, decode, execute, memory, writeback) with a three-level cache below the memory stage, a hazard protection unit, and a branch predictor">
+  <rect width="400" height="225" fill="#fbe9dc"/>
+
+  <g stroke="#a44e1f" stroke-width="1.8" fill="none">
+    <rect x="14" y="30" width="60" height="42" rx="5"/>
+    <rect x="88" y="30" width="60" height="42" rx="5"/>
+    <rect x="162" y="30" width="60" height="42" rx="5"/>
+    <rect x="236" y="30" width="60" height="42" rx="5"/>
+    <rect x="310" y="30" width="60" height="42" rx="5"/>
+  </g>
+
+  <g fill="#8a6417" font-family="monospace" font-size="12" text-anchor="middle">
+    <text x="44" y="55">IF</text>
+    <text x="118" y="55">ID</text>
+    <text x="192" y="55">EX</text>
+    <text x="266" y="55">MEM</text>
+    <text x="340" y="55">WB</text>
+  </g>
+
+  <g stroke="#a44e1f" stroke-width="1.6" fill="none">
+    <line x1="74" y1="51" x2="88" y2="51"/>
+    <line x1="148" y1="51" x2="162" y2="51"/>
+    <line x1="222" y1="51" x2="236" y2="51"/>
+    <line x1="296" y1="51" x2="310" y2="51"/>
+  </g>
+  <g fill="#a44e1f">
+    <path d="M82 46 L88 51 L82 56Z"/>
+    <path d="M156 46 L162 51 L156 56Z"/>
+    <path d="M230 46 L236 51 L230 56Z"/>
+    <path d="M304 46 L310 51 L304 56Z"/>
+  </g>
+
+  <line x1="266" y1="72" x2="266" y2="96" stroke="#a44e1f" stroke-width="1.6"/>
+  <path d="M261 90 L266 96 L271 90Z" fill="#a44e1f"/>
+
+  <g stroke="#a44e1f" stroke-width="1.6" fill="none">
+    <rect x="176" y="96" width="180" height="90" rx="6"/>
+    <line x1="176" y1="126" x2="356" y2="126"/>
+    <line x1="176" y1="156" x2="356" y2="156"/>
+  </g>
+  <g fill="#8a6417" font-family="monospace" font-size="12" text-anchor="middle">
+    <text x="266" y="115">L1 cache</text>
+    <text x="266" y="145">L2 cache</text>
+    <text x="266" y="175">L3 cache</text>
+  </g>
+
+  <g stroke="#8a7a68" stroke-width="1.6" fill="none">
+    <rect x="16" y="100" width="120" height="34" rx="5"/>
+    <rect x="16" y="148" width="120" height="34" rx="5"/>
+  </g>
+  <g fill="#5c554e" font-family="monospace" font-size="11" text-anchor="middle">
+    <text x="76" y="121">Hazard Protection</text>
+    <text x="76" y="169">Branch Predictor</text>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="Icon of a binary decision tree representing Shannon decomposition of a truth table">
+  <rect width="400" height="225" fill="#fbe9dc"/>
+
+  <g stroke="#a44e1f" stroke-width="2" fill="none">
+    <line x1="200" y1="50" x2="140" y2="100"/>
+    <line x1="200" y1="50" x2="260" y2="100"/>
+    <line x1="140" y1="100" x2="110" y2="150"/>
+    <line x1="140" y1="100" x2="170" y2="150"/>
+    <line x1="260" y1="100" x2="230" y2="150"/>
+    <line x1="260" y1="100" x2="290" y2="150"/>
+  </g>
+
+  <circle cx="200" cy="50" r="14" fill="none" stroke="#a44e1f" stroke-width="2.5"/>
+  <circle cx="140" cy="100" r="11" fill="none" stroke="#a44e1f" stroke-width="2.2"/>
+  <circle cx="260" cy="100" r="11" fill="none" stroke="#a44e1f" stroke-width="2.2"/>
+
+  <g fill="#c9622a">
+    <rect x="94" y="150" width="32" height="24" rx="3"/>
+    <rect x="154" y="150" width="32" height="24" rx="3"/>
+    <rect x="214" y="150" width="32" height="24" rx="3"/>
+    <rect x="274" y="150" width="32" height="24" rx="3"/>
+  </g>
+
+  <g fill="#8a6417" font-family="monospace" font-size="12" text-anchor="middle">
+    <text x="200" y="200">Shannon split</text>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="Diagram representing a multithreaded chat server routing messages to global, room, and private channels">
+  <rect width="400" height="225" fill="#fbe9dc"/>
+
+  <g stroke="#a44e1f" stroke-width="1.8" fill="none">
+    <rect x="164" y="90" width="72" height="46" rx="6"/>
+  </g>
+  <g fill="#8a6417" font-family="monospace" font-size="12" text-anchor="middle">
+    <text x="200" y="118">server</text>
+  </g>
+
+  <g stroke="#a44e1f" stroke-width="1.4" fill="none">
+    <line x1="164" y1="105" x2="70" y2="55"/>
+    <line x1="164" y1="120" x2="70" y2="120"/>
+    <line x1="164" y1="135" x2="70" y2="185"/>
+  </g>
+
+  <g fill="#c9622a">
+    <path d="M40 35h60a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8h-40l-14 12v-12h-6a8 8 0 0 1-8-8v-20a8 8 0 0 1 8-8Z"/>
+  </g>
+  <g fill="#a44e1f">
+    <path d="M40 100h60a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8h-40l-14 12v-12h-6a8 8 0 0 1-8-8v-20a8 8 0 0 1 8-8Z"/>
+  </g>
+  <g fill="#8a7a68">
+    <path d="M40 165h60a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8h-40l-14 12v-12h-6a8 8 0 0 1-8-8v-20a8 8 0 0 1 8-8Z"/>
+  </g>
+
+  <g fill="#fff9f4" font-family="monospace" font-size="10" text-anchor="middle">
+    <text x="72" y="55">global 00</text>
+    <text x="72" y="120">room 01</text>
+    <text x="72" y="185">private 10</text>
+  </g>
+
+  <g stroke="#a44e1f" stroke-width="1.4" fill="none">
+    <line x1="236" y1="105" x2="330" y2="70"/>
+    <line x1="236" y1="120" x2="330" y2="120"/>
+    <line x1="236" y1="135" x2="330" y2="170"/>
+  </g>
+  <g fill="none" stroke="#a44e1f" stroke-width="1.8">
+    <circle cx="340" cy="70" r="10"/>
+    <circle cx="340" cy="120" r="10"/>
+    <circle cx="340" cy="170" r="10"/>
+  </g>
+</svg>
