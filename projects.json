@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "pynq-zoom",
+    "title": "PYNQ-Zoom",
+    "summary": "Real-time FPGA fractal renderer: 48 parallel Mariani-Silver cores on a PYNQ-Z1, 36x faster than the ARM baseline. Built the memory subsystem, BRAM-to-DRAM streaming pipeline, queue system, top-level control, and RTL test suite.",
+    "thumb": "thumb-fractal.svg",
+    "thumb_alt": "Diagram of recursive quadrant subdivision used by the Mariani-Silver fractal algorithm",
+    "tags": [
+      { "label": "SystemVerilog", "kind": "lang" },
+      { "label": "PYNQ-Z1", "kind": "platform" },
+      { "label": "Memory Systems", "kind": "domain" },
+      { "label": "Verification", "kind": "domain" },
+      { "label": "Fractal Generation", "kind": "domain" }
+    ],
+    "featured": true,
+    "in_progress": false
+  },
+  {
+    "slug": "pynq-cast",
+    "title": "PYNQcast",
+    "summary": "Multiplayer first-person raycasting engine on a PYNQ-Z1 FPGA with a cloud-hosted, cloud-authoritative game server; built the HDMI output protocol and hardware UI overlay.",
+    "thumb": "thumb-pynqcast.svg",
+    "thumb_alt": "Illustration of a raycasting-rendered frame with vertical wall slices",
+    "tags": [
+      { "label": "SystemVerilog", "kind": "lang" },
+      { "label": "PYNQ-Z1", "kind": "platform" },
+      { "label": "AWS EC2", "kind": "platform" },
+      { "label": "Memory", "kind": "domain" },
+      { "label": "Hardware UI", "kind": "domain" },
+      { "label": "Video Pipeline", "kind": "domain" }
+    ],
+    "featured": true,
+    "in_progress": false
+  },
+  {
+    "slug": "cache-ip",
+    "title": "Customisable Multi-Layer Cache IP",
+    "summary": "A configurable multi-layer cache IP core for Vivado, parameterised for size, associativity, and layer count.",
+    "thumb": "thumb-cache-ip.svg",
+    "thumb_alt": "Diagram of a CPU core connected through a growing L1, L2, and L3 cache hierarchy to main memory",
+    "tags": [
+      { "label": "In Progress", "kind": "status" },
+      { "label": "SystemVerilog", "kind": "lang" },
+      { "label": "Vivado", "kind": "platform" },
+      { "label": "Cache Architecture", "kind": "domain" }
+    ],
+    "featured": false,
+    "in_progress": true
+  }
+]

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="Diagram representing recursive quadrant subdivision used by the Mariani-Silver fractal algorithm">
+  <rect width="400" height="225" fill="#fbe9dc"/>
+  <g stroke="#a44e1f" stroke-width="1.5" fill="none" opacity="0.85">
+    <rect x="40" y="22" width="320" height="180"/>
+    <line x1="200" y1="22" x2="200" y2="202"/>
+    <line x1="40" y1="112" x2="360" y2="112"/>
+    <rect x="200" y="22" width="160" height="90"/>
+    <line x1="280" y1="22" x2="280" y2="112"/>
+    <line x1="200" y1="67" x2="360" y2="67"/>
+    <rect x="280" y="22" width="80" height="45"/>
+    <line x1="320" y1="22" x2="320" y2="67"/>
+    <line x1="280" y1="44.5" x2="360" y2="44.5"/>
+    <rect x="40" y="112" width="160" height="90"/>
+    <line x1="120" y1="112" x2="120" y2="202"/>
+    <line x1="40" y1="157" x2="200" y2="157"/>
+  </g>
+  <circle cx="200" cy="112" r="3" fill="#c9622a"/>
+  <circle cx="280" cy="67" r="3" fill="#c9622a"/>
+  <circle cx="120" cy="157" r="3" fill="#c9622a"/>
+</svg>

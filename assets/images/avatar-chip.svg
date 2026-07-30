@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Abstract illustration of an FPGA chip package">
+  <rect x="0" y="0" width="160" height="160" fill="none"/>
+  <g stroke="#c9622a" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <line x1="40" y1="10" x2="40" y2="26"/>
+    <line x1="64" y1="10" x2="64" y2="26"/>
+    <line x1="96" y1="10" x2="96" y2="26"/>
+    <line x1="120" y1="10" x2="120" y2="26"/>
+
+    <line x1="40" y1="134" x2="40" y2="150"/>
+    <line x1="64" y1="134" x2="64" y2="150"/>
+    <line x1="96" y1="134" x2="96" y2="150"/>
+    <line x1="120" y1="134" x2="120" y2="150"/>
+
+    <line x1="10" y1="40" x2="26" y2="40"/>
+    <line x1="10" y1="64" x2="26" y2="64"/>
+    <line x1="10" y1="96" x2="26" y2="96"/>
+    <line x1="10" y1="120" x2="26" y2="120"/>
+
+    <line x1="134" y1="40" x2="150" y2="40"/>
+    <line x1="134" y1="64" x2="150" y2="64"/>
+    <line x1="134" y1="96" x2="150" y2="96"/>
+    <line x1="134" y1="120" x2="150" y2="120"/>
+  </g>
+  <rect x="26" y="26" width="108" height="108" rx="10" fill="#fbe9dc" stroke="#c9622a" stroke-width="3"/>
+  <g stroke="#a44e1f" stroke-width="2" fill="none" opacity="0.55">
+    <rect x="44" y="44" width="72" height="72" rx="4"/>
+    <line x1="44" y1="68" x2="116" y2="68"/>
+    <line x1="44" y1="92" x2="116" y2="92"/>
+    <line x1="68" y1="44" x2="68" y2="116"/>
+    <line x1="92" y1="44" x2="92" y2="116"/>
+  </g>
+  <circle cx="56" cy="56" r="4.5" fill="#c9622a"/>
+</svg>

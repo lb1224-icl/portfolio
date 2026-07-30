@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PYNQ-Zoom - Lucca Butler-Cassar</title>
+  <meta name="description" content="Real-time FPGA-accelerated fractal renderer on a PYNQ-Z1: 48 parallel Mariani-Silver cores, 36x faster than an ARM Cortex-A9 baseline." />
+  <link rel="icon" href="../assets/images/avatar-chip.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/gallery.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__brand" href="../index.html">Lucca Butler-Cassar</a>
+      <a class="breadcrumb" href="../index.html">&larr; All projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero container">
+      <h1 class="project-hero__title">PYNQ-Zoom: A Reprogrammable Fractal Renderer</h1>
+      <p class="project-hero__summary">
+        A real-time fractal rendering engine combining FPGA-accelerated escape-time computation
+        with browser-based control. 48 parallel compute cores on a PYNQ-Z1 synthesise the
+        Mariani-Silver algorithm in hardware, reaching 42 Mpixels/s, a 36&times; speedup over
+        the on-board ARM Cortex-A9, while an ARM-hosted gateway streams rendered tiles to a
+        browser frontend over WebSocket.
+      </p>
+      <p class="project-hero__summary">
+        Built by a six-person team at Imperial College London. My contributions were the
+        <strong>memory subsystem</strong> (colour BRAM, rotating state BRAM, tile table), the
+        <strong>background BRAM-to-DRAM streaming pipeline</strong>, the
+        <strong>queue system</strong> (generic FIFO underlying the job and complete queues), the
+        <strong>top-level control</strong> (sixteenth-sequencing state machine), and the
+        <strong>randomised RTL testbench suite</strong> used across integration testing.
+      </p>
+      <div class="tag-row">
+        <span class="tag tag--lang">SystemVerilog</span>
+        <span class="tag tag--platform">PYNQ-Z1</span>
+        <span class="tag tag--domain">Memory Systems</span>
+        <span class="tag tag--domain">Fractal Generation</span>
+        <span class="tag tag--domain">Verification</span>
+      </div>
+      <div class="project-actions">
+        <a class="btn btn--primary" href="https://github.com/PYNQPANTHERS/fractal-accelerator-rtl" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          RTL Repository
+        </a>
+        <a class="btn btn--secondary" href="https://github.com/PYNQPANTHERS/fractal-accelerator-sw" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Software Repository
+        </a>
+         <a class="btn btn--secondary" href="https://drive.google.com/file/d/1Rq1hemTi1CyFRoaJJv2h0GxPgn2qj27y/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 1.5h5.5L13 5v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1Z"/><path d="M9.5 1.5V5H13"/><path d="M4.5 8h6M4.5 10.2h6M4.5 12.4h3.5"/></svg>
+          Report (Drive)
+        </a>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-grid">
+          <button class="gallery-grid__item" type="button" data-caption="Full 1024x1024 render output">
+            <img src="../assets/images/pynq-zoom/top_full_image.png" alt="Full 1024x1024 fractal render produced by PYNQ-Zoom" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-caption="Low-iteration render showing the quad-tree traversal">
+            <img src="../assets/images/pynq-zoom/low_iter_dual.png" alt="Low iteration count fractal render using the dual-engine configuration" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-caption="Golden reference render created by testbench">
+            <img src="../assets/images/pynq-zoom/visualise_golden.png" alt="Testbench visualise.py reconstruction of the colour BRAM contents compared against the golden reference render" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-caption="MandelBrew dual-pane Explorer: Mandelbrot driving a live Julia set">
+            <img src="../assets/images/pynq-zoom/mandelbrew_dualpane.png" alt="MandelBrew dual-pane Explorer showing a Mandelbrot view driving a live Julia set view" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-caption="MandelBrew community page, Julia's Cafe">
+            <img src="../assets/images/pynq-zoom/mandelbrew_communitypage.png" alt="MandelBrew community page, Julia's Cafe, showing shared fractal explorations" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-caption="MandelBrew creator profile page">
+            <img src="../assets/images/pynq-zoom/mandelbrew_userpage.png" alt="MandelBrew creator profile page showing a user's published fractal views" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-body container">
+      <section aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <p>
+          PYNQ-Zoom renders the Mandelbrot set, Julia sets, and 30 other escape-time fractal
+          variants in real time on a PYNQ-Z1, using a hardware implementation of the
+          Mariani-Silver algorithm: a quad-tree traversal that flood-fills any region whose border
+          pixels share one colour, and only recurses into sub-quadrants where the border
+          disagrees. 48 parallel compute cores iterate <code>z = z&sup2; + c</code> directly in
+          programmable logic, each switching at runtime between an 18-bit narrow mode (two pixels
+          per core, per cycle) and a 35-bit wide mode for deep zooms, reusing the same DSP
+          slices across both. An ARM-hosted gateway configures the accelerator over AXI-Lite,
+          reads the rendered frame back over AXI-HP, and streams it to a browser frontend over
+          WebSocket, and the same accelerator is shared across concurrent users through
+          MandelBrew, a silicon-as-a-service product layer with admission control, fair
+          scheduling and a community gallery to wrap the project as a product.
+        </p>
+      </section>
+
+      <section aria-labelledby="approach-heading">
+        <h2 id="approach-heading">Technical Approach: My Contributions</h2>
+
+        <h3>Top-level control</h3>
+        <p>
+          I designed the <code>sixteenth_controller</code>, the top-level state machine that
+          sequences all 16 sub-images (&ldquo;sixteenths&rdquo;) of the 1024&times;1024 frame in
+          row-major order. It cycles through four states: <code>IDLE</code>,
+          <code>LOAD</code>, <code>RENDER</code>, and <code>NEXT</code>, latching
+          configuration from the PS on a start pulse, releasing the per-sixteenth engine from
+          reset, and detecting completion once all 256 tiles in that sixteenth have reached DDR,
+          before advancing to the next sixteenth or signalling the full frame done.
+        </p>
+
+        <h3>Memory subsystem</h3>
+        <p>
+          I built the three on-chip memories each per-sixteenth engine uses. The
+          <strong>colour BRAM</strong> packs eight palette-index pixels into each 64-bit word to
+          match the AXI-HP beat exactly, so the streaming unit forwards words to DDR with no
+          packing or width conversion; a per-tile write counter beside the write port flags a tile
+          as done without ever having to scan memory. The <strong>state BRAM</strong> tracks
+          two-bit unvisited/queued/done status per pixel for the quad-tree traversal, using a
+          four-bank rotating scheme rather than a two-bank ping-pong: one bank active per
+          sixteenth while the other three clear in the background, which guarantees a clear
+          spare bank even when a run of sixteenths flood-fills near-instantly, and eliminated the
+          state-memory drain tail entirely (down to 0 cycles from a non-zero figure under the
+          two-bank design). The <strong>tile table</strong> is a flat register file (not a BRAM,
+          since it needs a same-cycle multi-tile write and a combinational read) recording which
+          tiles were flood-filled and with what colour, linking the scheduler's fill decisions
+          directly to the streaming unit.
+        </p>
+
+        <h3>Background BRAM-to-DRAM streaming pipeline</h3>
+        <p>
+          I built the streaming unit that drains completed tiles from the colour BRAM to DDR over
+          AXI-HP, running independently of the compute pipeline so streaming never stalls
+          rendering. For flood-filled tiles, it reads the tile table combinationally and
+          synthesises constant-colour words directly, skipping a colour-BRAM read
+          entirely, since a uniform region never needed its interior computed in the first place.
+          A two-slot FIFO between the BRAM read and the AXI write hides read latency and absorbs
+          short stalls, holding rather than dropping data under backpressure. I also replaced a
+          1024-input priority-encoder chain for selecting the next completed tile (which capped
+          Fmax by scaling logic depth linearly with tile count) with a balanced reduction tree,
+          taking tile-selection frequency from 72&nbsp;MHz to 158&nbsp;MHz. Restructuring the scan
+          and address-generation stages to overlap with the previous tile's AXI handshake, and
+          batching writes into 16-beat AXI bursts, cut the total drain-tail cost across all 16
+          sixteenths.
+        </p>
+
+        <h3>Queue system</h3>
+        <p>
+          I designed the generic parameterised FIFO (<code>DATA_WIDTH</code>,
+          <code>DEPTH</code>) underlying both cross-stage queues in the pipeline: the job queue
+          (scheduler &rarr; control unit, depth 256, carrying border-pixel coordinates plus a
+          first-time-queued flag) and the complete queue (control unit &rarr; comparator, depth
+          2, carrying finished pixel results). Each is a circular buffer whose read/write pointers
+          carry one extra bit so full/empty can be distinguished without an occupancy comparator
+          on the critical path, plus a synchronous single-cycle flush. I also added an
+          <code>almost_full</code> flag, asserted one slot early, after testing showed the
+          job queue's registered valid output meant an in-flight pixel was already
+          dropped by the time <code>full</code> was observed.
+        </p>
+
+        <h3>Randomised RTL testbench suite</h3>
+        <p>
+          I built out the Icarus-based testbench infrastructure used across the
+          project's integration testing, following a UVM-influenced driver/monitor/scoreboard
+          split even in the lightweight simulation flow: a behavioural stub at every module
+          boundary, randomised and directed stimulus driven through a dedicated task, and outputs
+          checked against a golden reference before a <code>$display</code>-based pass/fail
+          verdict, runnable headlessly in CI. This caught real integration bugs before hardware
+          bring-up, including a concurrent-write conflict in the BRAM-to-DRAM FIFO update logic
+          that silently overwrote one data word per tile under certain arbitration timing.
+        </p>
+      </section>
+
+      <section aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <ul>
+          <li>42 Mpixels/s render throughput, 42 FPS at 1024&times;1024, across 48 parallel cores: a 36&times; speedup over the ARM Cortex-A9 baseline.</li>
+          <li>BRAM-to-DRAM drain-tail cut to 56 across all 16 sixteenths (roughly three orders of magnitude) via overlapped scan/check, single-cycle tile-table reads, and AXI burst writes.</li>
+          <li>Tile-selection critical path improved from 72&nbsp;MHz to 158&nbsp;MHz by replacing a naive priority-encoder chain with a balanced reduction tree.</li>
+          <li>Four-bank rotating state BRAM eliminated the state-memory clear tail entirely (0 cycles), removing a bottleneck the original two-bank ping-pong design was exposed to.</li>
+          <li>Job-queue backpressure fix (the <code>almost_full</code> lookahead) eliminated dropped border pixels under load, resolving a bug that had been hanging the scheduler.</li>
+        </ul>
+        <p>
+          Full system-level detail, including the scheduler's quad-tree traversal, the
+          dynamic-precision compute cores, and the multi-client MandelBrew product layer built by
+          the rest of the team, is in the
+          <a href="https://drive.google.com/file/d/1Rq1hemTi1CyFRoaJJv2h0GxPgn2qj27y/view?usp=sharing" target="_blank" rel="noopener noreferrer">project report</a>.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Lucca Butler-Cassar</span>
+      <span><a href="https://github.com/lb1224-icl/portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

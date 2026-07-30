@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="Diagram representing a CPU core connected through a growing L1, L2, and L3 cache hierarchy to main memory, with each stage larger and slower than the last">
+  <rect width="400" height="225" fill="#fbe9dc"/>
+
+  <g stroke="#a44e1f" stroke-width="1.6" fill="none">
+    <rect x="8" y="98" width="52" height="30" rx="3"/>
+    <rect x="80" y="88" width="42" height="50" rx="3"/>
+    <rect x="142" y="73" width="58" height="80" rx="3"/>
+    <rect x="220" y="53" width="78" height="120" rx="3"/>
+    <rect x="318" y="33" width="74" height="160" rx="3"/>
+  </g>
+
+  <g fill="#c9622a" opacity="0.14">
+    <rect x="80" y="88" width="42" height="50" rx="3"/>
+  </g>
+  <g fill="#a44e1f" opacity="0.14">
+    <rect x="142" y="73" width="58" height="80" rx="3"/>
+  </g>
+  <g fill="#8a3d16" opacity="0.14">
+    <rect x="220" y="53" width="78" height="120" rx="3"/>
+  </g>
+  <g fill="#5c2c10" opacity="0.14">
+    <rect x="318" y="33" width="74" height="160" rx="3"/>
+  </g>
+
+  <g stroke="#a44e1f" stroke-width="1.6" fill="none">
+    <line x1="60" y1="113" x2="80" y2="113"/>
+    <line x1="122" y1="113" x2="142" y2="113"/>
+    <line x1="200" y1="113" x2="220" y2="113"/>
+    <line x1="298" y1="113" x2="318" y2="113"/>
+  </g>
+
+  <g fill="#8a6417" font-family="monospace" font-size="13" text-anchor="middle">
+    <text x="34" y="117">Core</text>
+    <text x="101" y="117">L1</text>
+    <text x="171" y="117">L2</text>
+    <text x="259" y="117">L3</text>
+    <text x="355" y="117">DRAM</text>
+  </g>
+</svg>

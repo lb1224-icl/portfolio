@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="Illustration of a raycasting-rendered frame with a floor, ceiling, and vertical wall slices of varying height">
+  <rect width="400" height="225" fill="#fbe9dc"/>
+  <rect x="0" y="0" width="400" height="112" fill="#f3d9c2"/>
+  <rect x="0" y="112" width="400" height="113" fill="#e9c6a4"/>
+
+  <g fill="#c9622a">
+    <rect x="18" y="82" width="26" height="60"/>
+    <rect x="48" y="65" width="26" height="94"/>
+    <rect x="78" y="90" width="26" height="44"/>
+  </g>
+  <g fill="#a44e1f">
+    <rect x="108" y="50" width="30" height="124"/>
+    <rect x="142" y="70" width="30" height="84"/>
+  </g>
+  <g fill="#8a3d16">
+    <rect x="176" y="38" width="48" height="148"/>
+  </g>
+  <g fill="#a44e1f">
+    <rect x="228" y="70" width="30" height="84"/>
+    <rect x="262" y="50" width="30" height="124"/>
+  </g>
+  <g fill="#c9622a">
+    <rect x="296" y="90" width="26" height="44"/>
+    <rect x="326" y="65" width="26" height="94"/>
+    <rect x="356" y="82" width="26" height="60"/>
+  </g>
+</svg>

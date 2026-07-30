@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PYNQcast - Lucca Butler-Cassar</title>
+  <meta name="description" content="Multiplayer first-person raycasting game engine on a PYNQ-Z1 FPGA with a cloud-hosted, cloud-authoritative game server." />
+  <link rel="icon" href="../assets/images/avatar-chip.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../assets/gallery.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__brand" href="../index.html">Lucca Butler-Cassar</a>
+      <a class="breadcrumb" href="../index.html">&larr; All projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero container">
+      <h1 class="project-hero__title">PYNQ-Cast: A Multiplayer Raycasting Engine on PYNQ FPGA</h1>
+      <p class="project-hero__summary">
+        A multiplayer first-person raycasting game engine, packaged with a cloud-hosted
+        development and hosting platform. PYNQ-Z1 FPGA nodes render scenes entirely in hardware
+        and synchronise over UDP with a cloud-authoritative AWS EC2 server, which also exposes a
+        browser-based development environment for map editing, session management, and replays.
+      </p>
+      <p class="project-hero__summary">
+        Built by a seven-person team at Imperial College London. My contributions were the
+        <strong>HDMI output protocol</strong>, removing Xilinx's VDMA-based display pipeline in
+        favour of a direct AXI-Stream path, and the <strong>hardware UI overlay system</strong>,
+        a general-purpose compositing layer for text, textboxes, and loading bars.
+      </p>
+      <div class="tag-row">
+        <span class="tag tag--lang">SystemVerilog</span>
+        <span class="tag tag--platform">PYNQ-Z1</span>
+        <span class="tag tag--platform">AWS EC2</span>
+        <span class="tag tag--domain">Video Pipeline</span>
+        <span class="tag tag--domain">Game Engine</span>
+      </div>
+      <div class="project-actions">
+        <a class="btn btn--primary" href="https://github.com/PYNQcast" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Repository
+        </a>
+        <a class="btn btn--secondary" href="https://drive.google.com/file/d/1z2xFSxWkKfnZ99vcr8NFIQRQl6X3R6i_/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 1.5h5.5L13 5v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1Z"/><path d="M9.5 1.5V5H13"/><path d="M4.5 8h6M4.5 10.2h6M4.5 12.4h3.5"/></svg>
+          Report (Drive)
+        </a>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-grid">
+          <button class="gallery-grid__item" type="button" data-caption="Initial test of UI overlay">
+            <img src="../assets/images/pynq-cast/IMG_0231.jpeg" alt="PYNQcast running on PYNQ-Z1 hardware" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-caption="Test for text formatting support">
+            <img src="../assets/images/pynq-cast/IMG_0232.jpeg" alt="PYNQcast running on PYNQ-Z1 hardware, second angle" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-caption="Example UI overlay">
+            <img src="../assets/images/pynq-cast/IMG_0988.jpeg" alt="Multiplayer PYNQcast test session across two boards" loading="lazy" />
+          </button>
+          <button class="gallery-grid__item" type="button" data-type="video" data-full="../assets/images/pynq-cast/gameplay-demo.mp4" data-caption="Gameplay demo video">
+            <video src="../assets/images/pynq-cast/gameplay-demo.mp4" muted playsinline preload="metadata"></video>
+            <span class="gallery-grid__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7-11-7Z"/></svg>
+            </span>
+          </button>
+          <button class="gallery-grid__item" type="button" data-type="video" data-full="../assets/images/pynq-cast/gameplay-demo-2.mp4" data-caption="Gameplay demo video, second clip">
+            <video src="../assets/images/pynq-cast/gameplay-demo-2.mp4" muted playsinline preload="metadata"></video>
+            <span class="gallery-grid__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7-11-7Z"/></svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-body container">
+      <section aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+        <p>
+          PYNQcast is a multiplayer first-person raycasting engine spanning two or more PYNQ-Z1
+          FPGA nodes and an AWS EC2 server. On each node, the FPGA fabric runs a hardware DDA
+          (Digital Differential Analyser) raycasting engine that outputs directly to HDMI, while
+          the onboard ARM Cortex-A9 handles input, tracks player position and camera angle, and
+          syncs state with the server over UDP. A shared BRAM bridges the two. The server is
+          authoritative for all game state: it resolves collisions, broadcasts unified state back
+          to every node each tick, and exposes a browser-based environment for map editing,
+          session management, and match replay.
+        </p>
+      </section>
+
+      <section aria-labelledby="approach-heading">
+        <h2 id="approach-heading">Technical Approach: My Contributions</h2>
+
+        <h3>HDMI output protocol</h3>
+        <p>
+          The stock PYNQ video overlay writes each frame to a DDR3 framebuffer, then reads it
+          back through VDMA before it reaches the display pipeline. That costs 900 kB of AXI
+          traffic per frame and around 55 MB/s of bandwidth at 60 fps, and it lets frame rate
+          couple to PS scheduling, with tearing possible if the display scans out a frame the PS
+          is still writing. I removed VDMA entirely: the raycaster's AXI-Stream output connects
+          directly into the video timing chain, so there is no shared framebuffer for tearing to
+          occur on, and frame rate is governed purely by hardware. End-to-end pixel latency drops
+          from 16.7 ms to under 1 microsecond, the full 55 MB/s of AXI bandwidth is freed for
+          networking, and the ARM core just writes a game-state packet to BRAM each tick rather
+          than managing DMA transfers. After a full rewrite, the video timing and HDMI encoder 
+          IP costs about 1,800 LUTs and no BRAM.
+        </p>
+
+        <h3>Hardware UI overlay</h3>
+        <p>
+          I built a general-purpose compositing layer so the raycast render can carry a HUD
+          without any bitstream changes between applications, just different register values
+          written by the PS at startup. Two IPs sit in the pixel stream. A textbox
+          block evaluates axis-aligned rectangle slots fully in parallel, each pixel clock,
+          with a priority mux picking the first hit and one register stage of latency; loading
+          bars reuse the same evaluation, driven by a fill amount from the PS. A text
+          overlay reads a glyph BRAM covering the printable ASCII set, resolving position to
+          a BRAM address, a fetched byte, and a single-bit pixel gate in one clock cycle. The
+          glyph BRAM doubles as a general sprite tile store, so the PS can upload a custom bitmap
+          at runtime through the same one-cycle path. Together the overlay IPs cost around 180
+          LUTs and one BRAM tile, against roughly 55 MB/s of AXI bandwidth a software equivalent
+          would need at 480p.
+        </p>
+      </section>
+
+      <section aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+        <ul>
+          <li>End-to-end pixel latency cut from 16.7 ms to under 1 microsecond by removing VDMA from the display path.</li>
+          <li>Full 55 MB/s of AXI bandwidth recovered from the display pipeline and made available to networking.</li>
+          <li>UI overlay system: around 180 LUTs and 1 BRAM tile, versus roughly 55 MB/s of AXI bandwidth a software overlay would need at 480p.</li>
+          <li>Whole-system raycaster runs at under 10% of its throughput budget at 60 FPS, with PL resource use around 20% overall, leaving headroom for the overlay and future extensions.</li>
+        </ul>
+        <p>
+          Full system detail, including the DDA raycasting core, sprite and texture rendering,
+          and the server-side SEDA-inspired reactor architecture built by the rest of the team,
+          is in the
+          <a href="https://drive.google.com/file/d/1z2xFSxWkKfnZ99vcr8NFIQRQl6X3R6i_/view?usp=sharing" target="_blank" rel="noopener noreferrer">project report</a>.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; 2026 Lucca Butler-Cassar</span>
+      <span><a href="https://github.com/lb1224-icl/portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

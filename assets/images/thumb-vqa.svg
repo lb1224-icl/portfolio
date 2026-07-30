@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="Diagram representing a neural network with a discrete quantised activation codebook feeding a lookup table">
+  <rect width="400" height="225" fill="#fbe9dc"/>
+  <g stroke="#a44e1f" stroke-width="1.4" fill="none" opacity="0.85">
+    <line x1="70" y1="60" x2="180" y2="45"/>
+    <line x1="70" y1="60" x2="180" y2="112"/>
+    <line x1="70" y1="112" x2="180" y2="45"/>
+    <line x1="70" y1="112" x2="180" y2="112"/>
+    <line x1="70" y1="112" x2="180" y2="180"/>
+    <line x1="70" y1="165" x2="180" y2="112"/>
+    <line x1="70" y1="165" x2="180" y2="180"/>
+
+    <line x1="180" y1="45" x2="255" y2="80"/>
+    <line x1="180" y1="112" x2="255" y2="80"/>
+    <line x1="180" y1="112" x2="255" y2="145"/>
+    <line x1="180" y1="180" x2="255" y2="145"/>
+  </g>
+  <g fill="#c9622a">
+    <circle cx="70" cy="60" r="6"/>
+    <circle cx="70" cy="112" r="6"/>
+    <circle cx="70" cy="165" r="6"/>
+    <circle cx="180" cy="45" r="6"/>
+    <circle cx="180" cy="112" r="6"/>
+    <circle cx="180" cy="180" r="6"/>
+  </g>
+  <g fill="#8a6417">
+    <rect x="249" y="74" width="12" height="12"/>
+    <rect x="249" y="139" width="12" height="12"/>
+  </g>
+  <g stroke="#4c3a92" stroke-width="1.6" fill="none">
+    <rect x="290" y="60" width="80" height="105" rx="4"/>
+    <line x1="290" y1="81" x2="370" y2="81"/>
+    <line x1="290" y1="102" x2="370" y2="102"/>
+    <line x1="290" y1="123" x2="370" y2="123"/>
+    <line x1="290" y1="144" x2="370" y2="144"/>
+  </g>
+</svg>
